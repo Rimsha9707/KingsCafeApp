@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Riders.Order_Detail"
+             xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             Title="Orders Details">
+    <ContentPage.Content>
+        <ScrollView >
+
+            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" Padding="15" >
+                <ActivityIndicator x:Name="LoadingInd" IsRunning="True"></ActivityIndicator>
+
+                <map:Map IsVisible="false" x:Name="MapView" HeightRequest="300" HorizontalOptions="FillAndExpand" MapType="Street" />
+
+
+                <Grid ColumnDefinitions="80*,200*" Padding="20" RowDefinitions="30,60,30,30,30,30">
+                    <Label Grid.Row="0" Grid.Column="0"  TextColor="{StaticResource Primary}" Text="Name: "></Label>
+                    <Label Grid.Row="0" Grid.Column="1"  x:Name="txtUserName"></Label>
+                    <Label Grid.Row="1" Grid.Column="0"  TextColor="{StaticResource Primary}" Text="Email: "></Label>
+                    <Label Grid.Row="1" Grid.Column="1"  x:Name="txtUserEmail"></Label>
+                    <Label Grid.Row="2" Grid.Column="0"  TextColor="{StaticResource Primary}" Text="Phone No: "></Label>
+                    <Label Grid.Row="2" Grid.Column="1"  x:Name="txtUserPhone"></Label>
+                    <Label Grid.Row="3" Grid.Column="0"  TextColor="{StaticResource Primary}" Text="Address:"></Label>
+                    <Label Grid.Row="3" Grid.Column="1"  x:Name="txtUserAddress"></Label> 
+                    <Label Grid.Row="4" Grid.Column="0"  TextColor="{StaticResource Primary}" Text="Location:"></Label>
+                    <Label Grid.Row="4" Grid.Column="1"  x:Name="TxtLocationType"></Label>
+                   
+                </Grid>
+
+                <StackLayout VerticalOptions="Center" Orientation="Horizontal" Padding="8" BackgroundColor="{StaticResource Primary}">
+                    <Label HorizontalOptions="EndAndExpand" TextColor="White"  FontSize="Title" Text="Total Bill Rs.  : "/>
+                    <Label HorizontalOptions="End"  TextColor="White"  FontSize="Title" Text="480"  x:Name="lblTotal"/>
+                </StackLayout>
+
+                <StackLayout HeightRequest="300" >
+                    <ScrollView>
+                        <ListView SeparatorVisibility="Default" SeparatorColor="{StaticResource Primary}" x:Name="DataList" HasUnevenRows="True">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid ColumnDefinitions="70,*,40" RowDefinitions="20,20" Padding="2">
+
+                                            <Image Source="{Binding image}" Grid.RowSpan="2" Grid.Column="0" />
+                                            <Label TextColor="Black" Grid.Row="0" Grid.Column="1" Text="{Binding Name}" />
+                                            <Label TextColor="Black" Grid.Row="1" Grid.Column="1" Text="{Binding Detail}" />
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

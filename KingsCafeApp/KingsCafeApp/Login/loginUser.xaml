@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Login.loginUser"
+             Title="Login" BackgroundColor="AntiqueWhite"
+             >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Text="LogOut"  Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content >
+        <Grid>
+            <StackLayout Margin="15,110,15,0">
+
+            <Frame BackgroundColor="white" HasShadow="True" HeightRequest="400" HorizontalOptions="FillAndExpand">
+
+
+                    <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="LOGIN" TextColor="{StaticResource Primary}" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                        </StackLayout>
+                        <StackLayout Margin="0,25,0,0">
+                            
+                            <StackLayout Orientation="Horizontal">
+                                <Frame BackgroundColor="white" CornerRadius="15" HeightRequest="30" WidthRequest="30" Padding="0" Margin="7" HorizontalOptions="Start">
+                                    <Image Source="mail_ic.png"  BackgroundColor="White" Aspect="AspectFill" Margin="0" />
+                                </Frame>
+                                <Entry ClearButtonVisibility="WhileEditing" Placeholder="Email" TextColor="{StaticResource Primary}" PlaceholderColor="Gray" Keyboard="Email" x:Name="txtEmail" HorizontalOptions="FillAndExpand" >
+
+                                </Entry>
+
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal">
+                                <Frame BackgroundColor="white" CornerRadius="30" HeightRequest="35" WidthRequest="35" Padding="0" Margin="7" HorizontalOptions="Start">
+                                    <Image Source="password_ic.png" BackgroundColor="White" Aspect="AspectFill" Margin="0" />
+                                </Frame>
+                                <Entry ClearButtonVisibility="WhileEditing" Placeholder="Password" TextColor="{StaticResource Primary}" PlaceholderColor="Gray" IsPassword="True" x:Name="txtPassword" HorizontalOptions="FillAndExpand" ></Entry>
+                            </StackLayout>
+                        </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                            <!--<CheckBox IsChecked="False" Color="{StaticResource Primary}"></CheckBox>-->
+                            <!--<Label Text="Remember me" TextColor="{StaticResource Primary}" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"></Label>-->
+                        <Label x:Name="PsShow" Text="Show Password" HorizontalTextAlignment="End"  FontSize="15" VerticalTextAlignment="End" Margin="6" HorizontalOptions="EndAndExpand" TextColor="{StaticResource Primary}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Label x:Name="PsHide" IsVisible="false" Text="Hide Password" HorizontalTextAlignment="End"  FontSize="15" VerticalTextAlignment="End" Margin="6" HorizontalOptions="EndAndExpand" TextColor="{StaticResource Primary}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"></TapGestureRecognizer>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    <ActivityIndicator x:Name="LoadingInd" IsRunning="False" />
+                        <Button Text="LOGIN" x:Name="btnLogin" FontAttributes="Bold" BorderWidth="4"  CornerRadius="12" BackgroundColor="{StaticResource Primary}" TextColor="#FFFFFF" Clicked="Button_Clicked"></Button>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                       <Label Text="Forget Password ?" HorizontalTextAlignment="Center" TextColor="{StaticResource Primary}" FontAttributes="Bold" VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
+                                    </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Button x:Name="btnGetPass" Text="Get Password" IsVisible="false" FontAttributes="Bold" CornerRadius="12" BackgroundColor="{StaticResource Primary}" TextColor="#FFFFFF" Clicked="btnGetPass_Clicked"></Button>
+                            <Button x:Name="btnreset" Text="Back" FontAttributes="Bold" IsVisible="false" CornerRadius="12" BackgroundColor="{StaticResource Primary}" TextColor="#FFFFFF" Clicked="btnreset_Clicked"></Button>
+
+                        </StackLayout>
+
+                </StackLayout>
+            </Frame>
+
+
+        </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

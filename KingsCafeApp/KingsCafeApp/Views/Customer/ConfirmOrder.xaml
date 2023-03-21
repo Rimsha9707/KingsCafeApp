@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:map="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:helper="clr-namespace:KingsCafeApp.Helpers"
+             mc:Ignorable="d"
+             x:Class="KingsCafeApp.Views.Customer.ConfirmOrder"
+             Title="Order Confirmation" BackgroundImageSource="BG6.jpg">
+
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout Padding="24" Spacing="24" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+
+                <StackLayout Orientation="Horizontal">
+                    <RadioButton CheckedChanged="rdAddress_CheckedChanged" IsChecked="True" x:Name="rdAddress" Value="Map" />
+                    <Label Margin="0,5,0,0" FontSize="15" Text="Address" />
+
+                    <RadioButton x:Name="rdMapLocation" Value="Map" />
+                    <Label Margin="0,5,0,0" FontSize="15" Text="MapLocation" />
+
+                    
+                </StackLayout>
+                
+                <map:Map IsVisible="false" x:Name="MapView" HeightRequest="300" HorizontalOptions="FillAndExpand" MapType="Street" />
+                <Button IsVisible="false" x:Name="btnGetLocation" Text="Get Current Location" Clicked="btnGetLocation_Clicked"/>
+
+                <Label/>
+                <Label HorizontalOptions="CenterAndExpand" Text="The Last Step! Your order is almost ready please confirm where do you want to deliver this order?" />
+                <Label />
+
+                <Entry IsTextPredictionEnabled="True" Keyboard="Chat" Placeholder="Name.." ReturnType="Next" x:Name="txtName"></Entry>
+
+                <Entry Keyboard="Numeric" TextChanged="txtPhone_TextChanged" Placeholder="Phone No.."  ReturnType="Next" x:Name="txtPhone"></Entry>
+                <Label x:Name="lblPhoneValidation" IsVisible="False"></Label>
+
+                <Entry Keyboard="Email" TextChanged="txtEmail_TextChanged" Placeholder="Email.."  ReturnType="Next" x:Name="txtEmail"></Entry>
+                <Label x:Name="lblEmailValidation" IsVisible="true"></Label>
+
+                <Entry Placeholder="Address.." x:Name="txtAddress"  ReturnType="Done"></Entry>
+
+                <ActivityIndicator x:Name="LoadingInd" IsRunning="False" />
+                <Button Text="Confirm Order" Clicked="btnConfirm_Clicked" x:Name="btnConfirm"/>
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

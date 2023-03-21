@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="KingsCafeApp.Views.Customer.CustomerHome" Title="Home">
+  
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Text="LogOut"   Clicked="ToolbarItem_Clicked_2"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ActivityIndicator x:Name="LoadingInd" IsRunning="False"></ActivityIndicator>
+                <!--//===========================slider===========================//-->
+                <cv:CarouselViewControl x:Name="cvBanners" ShowIndicators="true" IndicatorsShape="Circle" IndicatorsTintColor="LightGray"
+                                    CurrentPageIndicatorTintColor="{StaticResource Primary}" Orientation="Horizontal" InterPageSpacing="0" 
+                                    HeightRequest="270" ItemsSource="{Binding Banners}" HorizontalOptions="FillAndExpand" 
+                                    VerticalOptions="StartAndExpand" AnimateTransition="True">
+                    <cv:CarouselViewControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand"/>
+                                <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand"/>
+                                <StackLayout Margin="30,20,0,0" Spacing="15" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                                    <Label Text="{Binding Heading}" TextColor="White" FontSize="12" FontAttributes="Bold"/>
+                                    <BoxView BackgroundColor="White" HorizontalOptions="Start" VerticalOptions="Start" HeightRequest="1" WidthRequest="50"/>
+                                    <StackLayout>
+                                        <Label Text="{Binding Message}" TextColor="White" FontSize="35" />
+                                        <Label Text="{Binding Caption}" TextColor="White" FontSize="12" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </cv:CarouselViewControl.ItemTemplate>
+                </cv:CarouselViewControl>
+                <StackLayout Grid.Row="1"   HorizontalOptions="CenterAndExpand" Margin="0,10,0,0">
+                    <Label Text="Categories" TextColor="{StaticResource Primary}" FontSize="Title" FontAttributes="Bold"/>
+                </StackLayout>
+                <ScrollView Grid.Row="2"  VerticalOptions="FillAndExpand">
+                    <Grid RowSpacing="30" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid RowSpacing="20" Margin="0,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <!--//============collection view selection mode is disabled by default===========//-->
+                            <ScrollView Orientation="Horizontal"  Grid.Row="1" VerticalOptions="Start" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
+                                <CollectionView SelectionMode="Single" x:Name="DataList" SelectionChanged="DataList_SelectionChanged"  VerticalOptions="Start" ItemsLayout="VerticalGrid, 2" >
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate >
+                                            <StackLayout Padding="24" VerticalOptions="Start">
+                                                <Frame Padding="0"  HasShadow="False" HorizontalOptions="Start" VerticalOptions="Start" CornerRadius="10" HeightRequest="150" WidthRequest="150">
+                                                    <Image Source="{Binding Image}" Aspect="Fill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                                                </Frame>
+                                                <Label Text="{Binding Name}" TextColor="Black" FontSize="15" />
+                                                <Label Text="{Binding Status}" Margin="0,-7,0,0" TextColor="Black" FontSize="12" />
+                                            </StackLayout>
+                                        </DataTemplate>
+
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </ScrollView>
+                        </Grid>
+                    </Grid>
+                </ScrollView>
+            </Grid>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

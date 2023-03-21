@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Admin.AdminHome" Title="Home">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Text="LogOut" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ScrollView >
+            <StackLayout Padding="20"  Spacing="10">
+                <Grid>
+                    <StackLayout HorizontalOptions="FillAndExpand"  Padding="0" Margin="0">
+
+                        <Frame BackgroundColor="white"  CornerRadius="15" HeightRequest="80" WidthRequest="300" HorizontalOptions="CenterAndExpand" Padding="20">
+                            <Label  Text="Admin Dashboard" FontSize="Large"  FontAttributes="Bold" TextColor="{StaticResource Primary}" VerticalOptions="Center" HorizontalOptions="Fill" Margin="0" />
+
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+                <StackLayout HorizontalOptions="Center" Padding="0" Spacing="0">
+                    <Grid ColumnDefinitions="170,170" RowSpacing="0" ColumnSpacing="15" VerticalOptions="Start" HorizontalOptions="Start"  RowDefinitions="180,40,180,40,180,40" Grid.ColumnSpan="1" Grid.RowSpan="6" >
+
+                        <ImageButton  Grid.Row="0" Grid.Column="0" Source="ic_profile.png" BorderWidth="4" HeightRequest="400" WidthRequest="60" BorderColor="white" CornerRadius="15" BackgroundColor="{StaticResource Primary}" x:Name="btnProfile" Clicked="btnProfile_Clicked"/>
+                        <Label Grid.Row="1" Text="Admin Profile"   FontAttributes="Bold" Grid.Column="0"  TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center"/>
+                        <ImageButton  Grid.Row="0" Grid.Column="1" Source="ic_worker.pmg" BorderWidth="4" HeightRequest="400" WidthRequest="60" BorderColor="white" CornerRadius="15" BackgroundColor="{StaticResource Primary}" x:Name="btnWorker" Clicked="btnWorker_Clicked" />
+                        <Label Grid.Row="1" Text="Worker List"   FontAttributes="Bold" Grid.Column="1"  TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center"/>
+
+                        <ImageButton  Grid.Row="2" Grid.Column="0" Source="ic_Rider.png" BorderWidth="4" HeightRequest="400" WidthRequest="60" BorderColor="white" CornerRadius="15" BackgroundColor="{StaticResource Primary}" x:Name="btnRider" Clicked="btnRider_Clicked"/>
+                        <Label Grid.Row="3" Text="Rider List"   FontAttributes="Bold" Grid.Column="0"  TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center"/>
+                        <ImageButton  Grid.Row="2" Grid.Column="1" Source="ic_orders.png" BorderWidth="4" HeightRequest="400" WidthRequest="60" BorderColor="white" CornerRadius="15" BackgroundColor="{StaticResource Primary}" x:Name="btOrder" Clicked="btOrder_Clicked" />
+                        <Label Grid.Row="3" Text="Manage Orders"   FontAttributes="Bold" Grid.Column="1"  TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center"/>
+
+                        <!--<ImageButton  Grid.Row="4" Grid.Column="0" Source="ic_orders.png" BorderWidth="4" HeightRequest="400" WidthRequest="60" BorderColor="white" CornerRadius="15" BackgroundColor="#00bcd5" x:Name="btnmsg" Clicked="btnmsg_Clicked"/>
+                        <Label Grid.Row="5" Text="Manage Orders "   FontAttributes="Bold" Grid.Column="0"  TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center"/>-->
+                        <!--<ImageButton  Grid.Row="4" Grid.Column="1" Source="push_notifi" BorderWidth="4" HeightRequest="400" WidthRequest="60" BorderColor="white" CornerRadius="15" BackgroundColor="#009688" x:Name="btnnotifi" Clicked="btnnotifi_Clicked" />
+                        <Label Grid.Row="5" Text="Notification"   FontAttributes="Bold" Grid.Column="1"  TextColor="#bd6513" HorizontalTextAlignment="Center"/>-->
+
+
+                    </Grid>
+                </StackLayout>
+
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

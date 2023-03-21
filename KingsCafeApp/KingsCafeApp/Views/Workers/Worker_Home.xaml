@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KingsCafeApp.Views.Workers.Worker_Home"
+             Title="Worker Panel">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Text="Logout" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+
+        <ScrollView >
+            <StackLayout Padding="20"  Spacing="10">
+                <ActivityIndicator x:Name="LoadingInd" IsRunning="False" />
+                <Grid>
+                    <StackLayout HorizontalOptions="FillAndExpand"  Padding="0" Margin="0">
+
+                        <Frame BackgroundColor="white"  CornerRadius="15" HeightRequest="80" WidthRequest="300" HorizontalOptions="CenterAndExpand" Padding="20">
+                            <Label  Text="Worker Dashboard" FontSize="Large"  FontAttributes="Bold" TextColor="{StaticResource Primary}" VerticalOptions="Center" HorizontalOptions="Fill" Margin="0" />
+
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+                <StackLayout HorizontalOptions="Center" Padding="0" Spacing="0">
+                    <Grid ColumnDefinitions="170,170" RowSpacing="0" ColumnSpacing="15" VerticalOptions="Start" HorizontalOptions="Start"  RowDefinitions="180,40,180,40,180,40" Grid.ColumnSpan="1" Grid.RowSpan="6" >
+
+                        <ImageButton  Grid.Row="0" Grid.Column="0" Source="ic_profile.png" BorderWidth="4" HeightRequest="400" WidthRequest="60" BorderColor="white" CornerRadius="15" BackgroundColor="{StaticResource Primary}" x:Name="btnProfile" Clicked="btnProfile_Clicked"/>
+                        <Label Grid.Row="1" Text="Worker Profile"   FontAttributes="Bold" Grid.Column="0"  TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center"/>
+                        
+                        <ImageButton  Grid.Row="0" Grid.Column="1" Source="ic_Rider.png" BorderWidth="4" HeightRequest="400" WidthRequest="60" BorderColor="white" CornerRadius="15" BackgroundColor="{StaticResource Primary}" x:Name="btnRider" Clicked="btnRider_Clicked"/>
+                        <Label Grid.Row="1" Text="Rider List"   FontAttributes="Bold" Grid.Column="1"  TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center"/>
+                        <ImageButton  Grid.Row="2" Grid.Column="0" Source="ic_orders.png" BorderWidth="4" HeightRequest="400" WidthRequest="60" BorderColor="white" CornerRadius="15" BackgroundColor="{StaticResource Primary}" x:Name="btOrder" Clicked="btOrder_Clicked" />
+                        <Label Grid.Row="3" Text="Manage Orders"   FontAttributes="Bold" Grid.Column="0"  TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center"/>
+                    </Grid>
+                </StackLayout>
+
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
